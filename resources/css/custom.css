@@ -1,0 +1,4 @@
+.button-link {
+    @apply relative rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-red-600/80 dark:focus-visible:ring-white rounded-lg hover:shadow-[0_0_30px_10px_rgba(0,0,255,0.2)] transition-shadow;
+}
+

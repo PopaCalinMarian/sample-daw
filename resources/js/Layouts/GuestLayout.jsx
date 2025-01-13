@@ -11,7 +11,27 @@ export default function GuestLayout({ children }) {
                     src ="/imgs/background-sports.jpeg"
                     alt = "background"
                 />
-            
+        
+            <nav className="fixed top-0 left-0 w-full bg-opacity-50 bg-gray-800 text-white p-4 flex justify-between items-center z-20">
+                <div className="flex items-center space-x-4">
+                    <Link href="/" className="button-link">
+                        Home
+                    </Link>
+                    <Link href={route('login')} className="button-link self-end">
+                        Login
+                    </Link>
+                    <Link href={route('register')} className="button-link">
+                        Register
+                    </Link>
+                    <Link href={route('sports')} className="button-link">
+                        Concursuri
+                    </Link>
+                </div>
+                <Link href="/" className="flex items-center">
+                    <ApplicationLogo className="h-10 w-10 fill-current text-gray-500" />
+                </Link>
+            </nav>
+
             <div className='relative z-10'>
                 <Link href="/">
                     <ApplicationLogo className="h-20 w-20 fill-current text-gray-500" />

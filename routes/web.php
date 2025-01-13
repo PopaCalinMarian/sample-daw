@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\ContestController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -17,6 +18,17 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/sports', function () {
+    return Inertia::render('SportsList');
+})->name('sports');
+
+Route::get('/contests', [ContestController::class, 'index'])->name('contests.index');
+Route::post('/contests', [ContestController::class, 'store'])->name('contests.store');
+
+Route::get('/createcontest', function () {
+    return Inertia::render('CreateContest');
+})->name('createcontest');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

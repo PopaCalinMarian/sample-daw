@@ -31,6 +31,15 @@ export default function AuthenticatedLayout({ header, children }) {
                                     Dashboard
                                 </NavLink>
                             </div>
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    href={route('createcontest')}
+                                    active={route().current('createcontest')}
+                                >
+                                    Creeaza concursul
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
@@ -135,6 +144,7 @@ export default function AuthenticatedLayout({ header, children }) {
                             Dashboard
                         </ResponsiveNavLink>
                     </div>
+                    
 
                     <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
                         <div className="px-4">

@@ -3,8 +3,11 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
+import React, { useState } from 'react';
 import { Link, useForm, usePage } from '@inertiajs/react';
-import DatePicker from "react-datepicker";
+import Calendar from 'react-calendar';
+import 'react-calendar'
+import DatePicker from 'react-datepicker';
 
 export default function CreateContestForm() 
 {   
@@ -13,10 +16,25 @@ export default function CreateContestForm()
 
     const { data, setData, post } = useForm({
         sport: '',
-        startDate: new Date(),
-        endDate: new Date(),
+        start_date: new Date(),
+        end_date: new Date(),
         location: '',
     });
+
+    const[start_date, setStartDate] = useState(new Date());
+    const[end_date, setEndDate] = useState(new Date());
+
+    //functii pentru a seta calendarul zilelor de inceput si de sfarsit
+    const handleStartDateChange = (date) => {
+        setStartDate(date);
+        setData('start_date', date);
+    };
+
+    const handleEndDateChange = (date) => {
+        setEndDate(date);
+        setData('end_date', date);
+    };
+
 
     const submit = (e) => {
         e.preventDefault();
@@ -46,8 +64,7 @@ export default function CreateContestForm()
         <div className="mt-4">
             <InputLabel htmlFor="start_date" value="Start Date" />
             <DatePicker
-                selected={data.startDate}
-                onChange={(date) => setData('start_date', date)}
+                selected={start_date} onChange={(date) => setStartDate(date)}
                 className="rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-600 dark:focus:ring-indigo-600 mt-1 block w-full"
             />
             {errors.start_date && <div className="mt-2 text-red-600">{errors.start_date}</div>}
@@ -57,8 +74,7 @@ export default function CreateContestForm()
         <div className="mt-4">
             <InputLabel htmlFor="end_date" value="End Date" />
             <DatePicker
-                selected={data.endDate}
-                onChange={(date) => setData('end_date', date)}
+                selected={end_date} onChange={(date) => setEndDate(date)}
                 className="rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-600 dark:focus:ring-indigo-600 mt-1 block w-full"
             />
             {errors.end_date && <div className="mt-2 text-red-600">{errors.end_date}</div>}

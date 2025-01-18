@@ -16,9 +16,19 @@ class ContestController extends Controller
             'end_date' => 'required|date',
             'location' => 'required|string',
         ]);
+        
+        //formatez datele pentru a fi ok pt mysql
+        $formattedStartDate = date('Y-m-d H:i:s', strtotime($request->start_date));
+        $formattedEndDate = date('Y-m-d H:i:s', strtotime($request->end_date));
 
-        Contest::create($request->all());
+        //acum putem aplica functia de creere
 
+        Contest::create([
+            'sport' => $request->sport,
+            'start_date' => $formattedStartDate,
+            'end_date' => $formattedEndDate,
+            'location' => $request->location,
+        ]); 
         return redirect()->route('contests.index')->with('success', 'Contest created.');
     }
 
@@ -28,5 +38,12 @@ class ContestController extends Controller
         return Inertia::render('Contests', ['contests' => $contests]);
         
         //something about /contests page
+    }
+
+    public function destroy(Contest $contest)
+    {
+        $contest->delete();
+
+        return redirect()->route('contests.index')->with('success', 'Contest deleted.');
     }
 }

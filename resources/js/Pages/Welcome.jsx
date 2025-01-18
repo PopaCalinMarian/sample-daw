@@ -26,34 +26,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 />
                 <div className="relative flex min-h-screen flex-col items-start justify-start selection:bg-[#FF2D20] selection:text-white">
                     <div className="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                        <header className="grid grid-cols-2 items-start gap-2 py-3 lg:grid-cols-3 self-start">
- 
-                            <nav className="fixed right-20 -mx-3 test-right flex flex-1 justify-end">
-                                {auth.user ? (
-                                    <Link
-                                        href={route('dashboard')}
-                                        className="button-link"
-                                        >
-                                        Dashboard
-                                    </Link>
-                                ) : (
-                                    <>
-                                        <Link
-                                            href={route('login')}
-                                            className="button-link"
-                                        >
-                                            Log in
-                                        </Link>
-                                        <Link
-                                            href={route('register')}
-                                            className="button-link"
-                                        >
-                                            Register
-                                        </Link>
-                                    </>
-                                )}
-                            </nav>
-                        </header>
 
                         <footer className="fixed bottom-0 w-full py-1 text-left items-end text-sm text-black dark:text-black/70 self-end">
                             Laravel v{laravelVersion} (PHP v{phpVersion})

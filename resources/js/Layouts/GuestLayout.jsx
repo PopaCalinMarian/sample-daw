@@ -12,20 +12,23 @@ export default function GuestLayout({ children }) {
                     alt = "background"
                 />
         
-            <nav className="fixed top-0 left-0 w-full bg-opacity-50 bg-gray-800 text-white p-4 flex justify-between items-center z-20">
+            <nav className="fixed justify-center top-0 left-0 w-full bg-opacity-90 bg-gray-800 text-white p-4 flex items-center z-20">
                 <div className="flex items-center space-x-4">
                     <Link href="/" className="button-link">
                         Home
+                    </Link>
+                    <Link href={route('contests.index')} className="button-link">
+                        Concursuri
+                    </Link>
+                    <Link href={route('reports')} className="button-link">
+                        Rapoarte
                     </Link>
                     <Link href={route('login')} className="button-link self-end">
                         Login
                     </Link>
                     <Link href={route('register')} className="button-link">
                         Register
-                    </Link>
-                    <Link href={route('sports')} className="button-link">
-                        Concursuri
-                    </Link>
+                    </Link>     
                 </div>
                 <Link href="/" className="flex items-center">
                     <ApplicationLogo className="h-10 w-10 fill-current text-gray-500" />

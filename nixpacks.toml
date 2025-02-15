@@ -23,7 +23,5 @@
 
 # Start both PHP-FPM and Caddy
 [start]
-    cmd = '''
-    php-fpm -D  # Start PHP-FPM in the background
-    exec caddy run --config Caddyfile --adapter caddyfile 2>&1
-    '''
+    cmd = 'sh -c "php-fpm -D && exec caddy run --config Caddyfile --adapter caddyfile 2>&1"'
+

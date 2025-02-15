@@ -23,5 +23,5 @@
 
 # Start both PHP-FPM and Caddy
 [start]
-    cmd = 'caddy run --config Caddyfile --adapter caddyfile 2>&1'
+    cmd = 'php artisan serve && caddy run --config Caddyfile --adapter caddyfile 2>&1'
 

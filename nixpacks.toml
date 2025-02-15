@@ -18,3 +18,7 @@
 # start the caddy web server
 [start]
     cmd = 'exec caddy run --config Caddyfile --adapter caddyfile 2>&1' # start caddy using the Caddyfile config and caddyfile adapter
+
+#add php to this buil
+[phases.setup]
+    aptPkgs = ["php", "php-cli", "php-fpm", "php-mbstring", "php-tokenizer", "php-xml", "php-curl", "php-bcmath", "php-zip"]

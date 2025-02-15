@@ -6,7 +6,7 @@
 # Install PHP & required extensions
 [phases.setup]
     aptPkgs = [
-        "php", "php-cli", "php-fpm", "php-mbstring", "php-tokenizer",
+        "php", "php-cli", "php-mbstring", "php-tokenizer",
         "php-xml", "php-curl", "php-bcmath", "php-zip"
     ]
 
@@ -23,5 +23,5 @@
 
 # Start both PHP-FPM and Caddy
 [start]
-    cmd = 'sh -c "php-fpm -D && exec caddy run --config Caddyfile --adapter caddyfile 2>&1"'
+    cmd = 'caddy run --config Caddyfile --adapter caddyfile 2>&'
 

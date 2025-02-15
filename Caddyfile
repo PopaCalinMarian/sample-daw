@@ -33,7 +33,7 @@
     file_server
 
     #for php processing
-    php_fastcgi 127.0.0.1:9000
+    php_fastcgi unix//run/php-fpm/php-fpm.sock
 
     # if path doesn't exist, redirect it to 'index.html' for client side routing
     try_files {path} /index.php?{query}
